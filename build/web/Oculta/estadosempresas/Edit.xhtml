@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EstadosempresasEditDlg" widgetVar="EstadosempresasEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{mensajes.EditEstadosempresasTitle}">
+            <h:form id="EstadosempresasEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{estadosempresasController.selected != null}">
+                        <p:outputLabel value="#{mensajes.EditEstadosempresasLabel_codigo}" for="codigo" />
+                        <p:inputText id="codigo" value="#{estadosempresasController.selected.codigo}" title="#{mensajes.EditEstadosempresasTitle_codigo}" required="true" requiredMessage="#{mensajes.EditEstadosempresasRequiredMessage_codigo}"/>
+                        <p:outputLabel value="#{mensajes.EditEstadosempresasLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{estadosempresasController.selected.estado}" title="#{mensajes.EditEstadosempresasTitle_estado}" required="true" requiredMessage="#{mensajes.EditEstadosempresasRequiredMessage_estado}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{estadosempresasController.update}" value="#{mensajes.Save}" update="display,:EstadosempresasListForm:datalist,:growl" oncomplete="handleSubmit(args, 'EstadosempresasEditDialog');"/>
+                    <p:commandButton value="#{mensajes.Cancel}" onclick="EstadosempresasEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

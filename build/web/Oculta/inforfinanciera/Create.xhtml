@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="InforfinancieraCreateDlg" widgetVar="InforfinancieraCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{mensajes.CreateInforfinancieraTitle}">
+            <h:form id="InforfinancieraCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{inforfinancieraController.selected != null}">
+                        <p:outputLabel value="#{mensajes.CreateInforfinancieraLabel_noRegistro}" for="noRegistro" />
+                        <p:inputText id="noRegistro" value="#{inforfinancieraController.selected.noRegistro}" title="#{mensajes.CreateInforfinancieraTitle_noRegistro}" required="true" requiredMessage="#{mensajes.CreateInforfinancieraRequiredMessage_noRegistro}"/>
+                        <p:outputLabel value="#{mensajes.CreateInforfinancieraLabel_fechaCorte}" for="fechaCorte" />
+                        <p:calendar id="fechaCorte" pattern="MM/dd/yyyy" value="#{inforfinancieraController.selected.fechaCorte}" title="#{mensajes.EditInforfinancieraTitle_fechaCorte}" required="true" requiredMessage="#{mensajes.EditInforfinancieraRequiredMessage_fechaCorte}" showOn="button"/>
+                        <p:outputLabel value="#{mensajes.CreateInforfinancieraLabel_bancos}" for="bancos" />
+                        <p:inputText id="bancos" value="#{inforfinancieraController.selected.bancos}" title="#{mensajes.CreateInforfinancieraTitle_bancos}" required="true" requiredMessage="#{mensajes.CreateInforfinancieraRequiredMessage_bancos}"/>
+                        <p:outputLabel value="#{mensajes.CreateInforfinancieraLabel_cuentasxCobrar}" for="cuentasxCobrar" />
+                        <p:inputText id="cuentasxCobrar" value="#{inforfinancieraController.selected.cuentasxCobrar}" title="#{mensajes.CreateInforfinancieraTitle_cuentasxCobrar}" required="true" requiredMessage="#{mensajes.CreateInforfinancieraRequiredMessage_cuentasxCobrar}"/>
+                        <p:outputLabel value="#{mensajes.CreateInforfinancieraLabel_inventarios}" for="inventarios" />
+                        <p:inputText id="inventarios" value="#{inforfinancieraController.selected.inventarios}" title="#{mensajes.CreateInforfinancieraTitle_inventarios}" required="true" requiredMessage="#{mensajes.CreateInforfinancieraRequiredMessage_inventarios}"/>
+                        <p:outputLabel value="#{mensajes.CreateInforfinancieraLabel_valoresRealizables}" for="valoresRealizables" />
+                        <p:inputText id="valoresRealizables" value="#{inforfinancieraController.selected.valoresRealizables}" title="#{mensajes.CreateInforfinancieraTitle_valoresRealizables}" required="true" requiredMessage="#{mensajes.CreateInforfinancieraRequiredMessage_valoresRealizables}"/>
+                        <p:outputLabel value="#{mensajes.CreateInforfinancieraLabel_activosCorrientes}" for="activosCorrientes" />
+                        <p:inputText id="activosCorrientes" value="#{inforfinancieraController.selected.activosCorrientes}" title="#{mensajes.CreateInforfinancieraTitle_activosCorrientes}" required="true" requiredMessage="#{mensajes.CreateInforfinancieraRequiredMessage_activosCorrientes}"/>
+                        <p:outputLabel value="#{mensajes.CreateInforfinancieraLabel_propiedadplantayEquipo}" for="propiedadplantayEquipo" />
+                        <p:inputText id="propiedadplantayEquipo" value="#{inforfinancieraController.selected.propiedadplantayEquipo}" title="#{mensajes.CreateInforfinancieraTitle_propiedadplantayEquipo}" required="true" requiredMessage="#{mensajes.CreateInforfinancieraRequiredMessage_propiedadplantayEquipo}"/>
+                        <p:outputLabel value="#{mensajes.CreateInforfinancieraLabel_activosNoCorrientes}" for="activosNoCorrientes" />
+                        <p:inputText id="activosNoCorrientes" value="#{inforfinancieraController.selected.activosNoCorrientes}" title="#{mensajes.CreateInforfinancieraTitle_activosNoCorrientes}" required="true" requiredMessage="#{mensajes.CreateInforfinancieraRequiredMessage_activosNoCorrientes}"/>
+                        <p:outputLabel value="#{mensajes.CreateInforfinancieraLabel_cuentasxPagar}" for="cuentasxPagar" />
+                        <p:inputText id="cuentasxPagar" value="#{inforfinancieraController.selected.cuentasxPagar}" title="#{mensajes.CreateInforfinancieraTitle_cuentasxPagar}" required="true" requiredMessage="#{mensajes.CreateInforfinancieraRequiredMessage_cuentasxPagar}"/>
+                        <p:outputLabel value="#{mensajes.CreateInforfinancieraLabel_pasivosCorrientes}" for="pasivosCorrientes" />
+                        <p:inputText id="pasivosCorrientes" value="#{inforfinancieraController.selected.pasivosCorrientes}" title="#{mensajes.CreateInforfinancieraTitle_pasivosCorrientes}" required="true" requiredMessage="#{mensajes.CreateInforfinancieraRequiredMessage_pasivosCorrientes}"/>
+                        <p:outputLabel value="#{mensajes.CreateInforfinancieraLabel_otrosPasivos}" for="otrosPasivos" />
+                        <p:inputText id="otrosPasivos" value="#{inforfinancieraController.selected.otrosPasivos}" title="#{mensajes.CreateInforfinancieraTitle_otrosPasivos}" required="true" requiredMessage="#{mensajes.CreateInforfinancieraRequiredMessage_otrosPasivos}"/>
+                        <p:outputLabel value="#{mensajes.CreateInforfinancieraLabel_pasivosNoCorrientes}" for="pasivosNoCorrientes" />
+                        <p:inputText id="pasivosNoCorrientes" value="#{inforfinancieraController.selected.pasivosNoCorrientes}" title="#{mensajes.CreateInforfinancieraTitle_pasivosNoCorrientes}" required="true" requiredMessage="#{mensajes.CreateInforfinancieraRequiredMessage_pasivosNoCorrientes}"/>
+                        <p:outputLabel value="#{mensajes.CreateInforfinancieraLabel_patrimonio}" for="patrimonio" />
+                        <p:inputText id="patrimonio" value="#{inforfinancieraController.selected.patrimonio}" title="#{mensajes.CreateInforfinancieraTitle_patrimonio}" required="true" requiredMessage="#{mensajes.CreateInforfinancieraRequiredMessage_patrimonio}"/>
+                        <p:outputLabel value="#{mensajes.CreateInforfinancieraLabel_ingresosOperacionales}" for="ingresosOperacionales" />
+                        <p:inputText id="ingresosOperacionales" value="#{inforfinancieraController.selected.ingresosOperacionales}" title="#{mensajes.CreateInforfinancieraTitle_ingresosOperacionales}" required="true" requiredMessage="#{mensajes.CreateInforfinancieraRequiredMessage_ingresosOperacionales}"/>
+                        <p:outputLabel value="#{mensajes.CreateInforfinancieraLabel_costodeVentas}" for="costodeVentas" />
+                        <p:inputText id="costodeVentas" value="#{inforfinancieraController.selected.costodeVentas}" title="#{mensajes.CreateInforfinancieraTitle_costodeVentas}" required="true" requiredMessage="#{mensajes.CreateInforfinancieraRequiredMessage_costodeVentas}"/>
+                        <p:outputLabel value="#{mensajes.CreateInforfinancieraLabel_ingresosNoOperacionales}" for="ingresosNoOperacionales" />
+                        <p:inputText id="ingresosNoOperacionales" value="#{inforfinancieraController.selected.ingresosNoOperacionales}" title="#{mensajes.CreateInforfinancieraTitle_ingresosNoOperacionales}" required="true" requiredMessage="#{mensajes.CreateInforfinancieraRequiredMessage_ingresosNoOperacionales}"/>
+                        <p:outputLabel value="#{mensajes.CreateInforfinancieraLabel_gastosdeVenta}" for="gastosdeVenta" />
+                        <p:inputText id="gastosdeVenta" value="#{inforfinancieraController.selected.gastosdeVenta}" title="#{mensajes.CreateInforfinancieraTitle_gastosdeVenta}" required="true" requiredMessage="#{mensajes.CreateInforfinancieraRequiredMessage_gastosdeVenta}"/>
+                        <p:outputLabel value="#{mensajes.CreateInforfinancieraLabel_gastosdeAdministración}" for="gastosdeAdministración" />
+                        <p:inputText id="gastosdeAdministración" value="#{inforfinancieraController.selected.gastosdeAdministración}" title="#{mensajes.CreateInforfinancieraTitle_gastosdeAdministración}" required="true" requiredMessage="#{mensajes.CreateInforfinancieraRequiredMessage_gastosdeAdministración}"/>
+                        <p:outputLabel value="#{mensajes.CreateInforfinancieraLabel_otrosGastos}" for="otrosGastos" />
+                        <p:inputText id="otrosGastos" value="#{inforfinancieraController.selected.otrosGastos}" title="#{mensajes.CreateInforfinancieraTitle_otrosGastos}" required="true" requiredMessage="#{mensajes.CreateInforfinancieraRequiredMessage_otrosGastos}"/>
+                        <p:outputLabel value="#{mensajes.CreateInforfinancieraLabel_ingresosFinancieros}" for="ingresosFinancieros" />
+                        <p:inputText id="ingresosFinancieros" value="#{inforfinancieraController.selected.ingresosFinancieros}" title="#{mensajes.CreateInforfinancieraTitle_ingresosFinancieros}" required="true" requiredMessage="#{mensajes.CreateInforfinancieraRequiredMessage_ingresosFinancieros}"/>
+                        <p:outputLabel value="#{mensajes.CreateInforfinancieraLabel_gastosFinancieros}" for="gastosFinancieros" />
+                        <p:inputText id="gastosFinancieros" value="#{inforfinancieraController.selected.gastosFinancieros}" title="#{mensajes.CreateInforfinancieraTitle_gastosFinancieros}" required="true" requiredMessage="#{mensajes.CreateInforfinancieraRequiredMessage_gastosFinancieros}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{inforfinancieraController.create}" value="#{mensajes.Save}" update="display,:InforfinancieraListForm:datalist,:growl" oncomplete="handleSubmit(args,'InforfinancieraCreateDialog');"/>
+                    <p:commandButton value="#{mensajes.Cancel}" onclick="InforfinancieraCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

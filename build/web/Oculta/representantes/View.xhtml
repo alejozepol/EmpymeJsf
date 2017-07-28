@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="RepresentantesViewDlg" widgetVar="RepresentantesViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{mensajes.ViewRepresentantesTitle}">
+            <h:form id="RepresentantesViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{representantesController.selected != null}">
+                        <h:outputText value="#{mensajes.ViewRepresentantesLabel_identificacion}"/>
+                        <h:outputText value="#{representantesController.selected.identificacion}" title="#{mensajes.ViewRepresentantesTitle_identificacion}"/>
+                        <h:outputText value="#{mensajes.ViewRepresentantesLabel_nombre}"/>
+                        <h:outputText value="#{representantesController.selected.nombre}" title="#{mensajes.ViewRepresentantesTitle_nombre}"/>
+                        <h:outputText value="#{mensajes.ViewRepresentantesLabel_apellido}"/>
+                        <h:outputText value="#{representantesController.selected.apellido}" title="#{mensajes.ViewRepresentantesTitle_apellido}"/>
+                        <h:outputText value="#{mensajes.ViewRepresentantesLabel_telefono}"/>
+                        <h:outputText value="#{representantesController.selected.telefono}" title="#{mensajes.ViewRepresentantesTitle_telefono}"/>
+                        <h:outputText value="#{mensajes.ViewRepresentantesLabel_celular}"/>
+                        <h:outputText value="#{representantesController.selected.celular}" title="#{mensajes.ViewRepresentantesTitle_celular}"/>
+                        <h:outputText value="#{mensajes.ViewRepresentantesLabel_email}"/>
+                        <h:outputText value="#{representantesController.selected.email}" title="#{mensajes.ViewRepresentantesTitle_email}"/>
+                        <h:outputText value="#{mensajes.ViewRepresentantesLabel_fechaRegistro}"/>
+                        <h:outputText value="#{representantesController.selected.fechaRegistro}" title="#{mensajes.ViewRepresentantesTitle_fechaRegistro}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{mensajes.ViewRepresentantesLabel_fotocopia}"/>
+                        <h:outputText value="#{representantesController.selected.fotocopia}" title="#{mensajes.ViewRepresentantesTitle_fotocopia}"/>
+                        <h:outputText value="#{mensajes.ViewRepresentantesLabel_cargo}"/>
+                        <h:outputText value="#{representantesController.selected.cargo}" title="#{mensajes.ViewRepresentantesTitle_cargo}"/>
+                        <h:outputText value="#{mensajes.ViewRepresentantesLabel_docTipo}"/>
+                        <h:outputText value="#{representantesController.selected.docTipo}" title="#{mensajes.ViewRepresentantesTitle_docTipo}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{mensajes.Close}" onclick="RepresentantesViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EmpresasCreateDlg" widgetVar="EmpresasCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{mensajes.CreateEmpresasTitle}">
+            <h:form id="EmpresasCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{empresasController.selected != null}">
+                        <p:outputLabel value="#{mensajes.CreateEmpresasLabel_nit}" for="nit" />
+                        <p:inputText id="nit" value="#{empresasController.selected.nit}" title="#{mensajes.CreateEmpresasTitle_nit}" required="true" requiredMessage="#{mensajes.CreateEmpresasRequiredMessage_nit}"/>
+                        <p:outputLabel value="#{mensajes.CreateEmpresasLabel_razonSocial}" for="razonSocial" />
+                        <p:inputText id="razonSocial" value="#{empresasController.selected.razonSocial}" title="#{mensajes.CreateEmpresasTitle_razonSocial}" required="true" requiredMessage="#{mensajes.CreateEmpresasRequiredMessage_razonSocial}"/>
+                        <p:outputLabel value="#{mensajes.CreateEmpresasLabel_direccion}" for="direccion" />
+                        <p:inputText id="direccion" value="#{empresasController.selected.direccion}" title="#{mensajes.CreateEmpresasTitle_direccion}" required="true" requiredMessage="#{mensajes.CreateEmpresasRequiredMessage_direccion}"/>
+                        <p:outputLabel value="#{mensajes.CreateEmpresasLabel_telefono}" for="telefono" />
+                        <p:inputText id="telefono" value="#{empresasController.selected.telefono}" title="#{mensajes.CreateEmpresasTitle_telefono}" required="true" requiredMessage="#{mensajes.CreateEmpresasRequiredMessage_telefono}"/>
+                        <p:outputLabel value="#{mensajes.CreateEmpresasLabel_paginaWeb}" for="paginaWeb" />
+                        <p:inputText id="paginaWeb" value="#{empresasController.selected.paginaWeb}" title="#{mensajes.CreateEmpresasTitle_paginaWeb}" required="true" requiredMessage="#{mensajes.CreateEmpresasRequiredMessage_paginaWeb}"/>
+                        <p:outputLabel value="#{mensajes.CreateEmpresasLabel_fechaConstitucion}" for="fechaConstitucion" />
+                        <p:calendar id="fechaConstitucion" pattern="MM/dd/yyyy" value="#{empresasController.selected.fechaConstitucion}" title="#{mensajes.EditEmpresasTitle_fechaConstitucion}" required="true" requiredMessage="#{mensajes.EditEmpresasRequiredMessage_fechaConstitucion}" showOn="button"/>
+                        <p:outputLabel value="#{mensajes.CreateEmpresasLabel_objetoSocial}" for="objetoSocial" />
+                        <p:inputText id="objetoSocial" value="#{empresasController.selected.objetoSocial}" title="#{mensajes.CreateEmpresasTitle_objetoSocial}" required="true" requiredMessage="#{mensajes.CreateEmpresasRequiredMessage_objetoSocial}"/>
+                        <p:outputLabel value="#{mensajes.CreateEmpresasLabel_establecimientos}" for="establecimientos" />
+                        <p:inputText id="establecimientos" value="#{empresasController.selected.establecimientos}" title="#{mensajes.CreateEmpresasTitle_establecimientos}" required="true" requiredMessage="#{mensajes.CreateEmpresasRequiredMessage_establecimientos}"/>
+                        <p:outputLabel value="#{mensajes.CreateEmpresasLabel_numEmpleados}" for="numEmpleados" />
+                        <p:inputText id="numEmpleados" value="#{empresasController.selected.numEmpleados}" title="#{mensajes.CreateEmpresasTitle_numEmpleados}" required="true" requiredMessage="#{mensajes.CreateEmpresasRequiredMessage_numEmpleados}"/>
+                        <p:outputLabel value="#{mensajes.CreateEmpresasLabel_archivo}" for="archivo" />
+                        <p:inputText id="archivo" value="#{empresasController.selected.archivo}" title="#{mensajes.CreateEmpresasTitle_archivo}" required="true" requiredMessage="#{mensajes.CreateEmpresasRequiredMessage_archivo}"/>
+                        <p:outputLabel value="#{mensajes.CreateEmpresasLabel_ciiu}" for="ciiu" />
+                        <p:selectOneMenu id="ciiu" value="#{empresasController.selected.ciiu}" required="true" requiredMessage="#{mensajes.EditEmpresasRequiredMessage_ciiu}">
+                            <f:selectItems value="#{codigosdescripcionController.itemsAvailableSelectOne}"
+                                           var="ciiuItem"
+                                           itemValue="#{ciiuItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{mensajes.CreateEmpresasLabel_estado}" for="estado" />
+                        <p:selectOneMenu id="estado" value="#{empresasController.selected.estado}" required="true" requiredMessage="#{mensajes.EditEmpresasRequiredMessage_estado}">
+                            <f:selectItems value="#{estadosempresasController.itemsAvailableSelectOne}"
+                                           var="estadoItem"
+                                           itemValue="#{estadoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{mensajes.CreateEmpresasLabel_formaJuridica}" for="formaJuridica" />
+                        <p:selectOneMenu id="formaJuridica" value="#{empresasController.selected.formaJuridica}" required="true" requiredMessage="#{mensajes.EditEmpresasRequiredMessage_formaJuridica}">
+                            <f:selectItems value="#{tiposdesociedadesController.itemsAvailableSelectOne}"
+                                           var="formaJuridicaItem"
+                                           itemValue="#{formaJuridicaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{mensajes.CreateEmpresasLabel_tipo}" for="tipo" />
+                        <p:selectOneMenu id="tipo" value="#{empresasController.selected.tipo}" required="true" requiredMessage="#{mensajes.EditEmpresasRequiredMessage_tipo}">
+                            <f:selectItems value="#{tipodocController.itemsAvailableSelectOne}"
+                                           var="tipoItem"
+                                           itemValue="#{tipoItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{empresasController.create}" value="#{mensajes.Save}" update="display,:EmpresasListForm:datalist,:growl" oncomplete="handleSubmit(args,'EmpresasCreateDialog');"/>
+                    <p:commandButton value="#{mensajes.Cancel}" onclick="EmpresasCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

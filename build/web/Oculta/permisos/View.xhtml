@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PermisosViewDlg" widgetVar="PermisosViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{mensajes.ViewPermisosTitle}">
+            <h:form id="PermisosViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{permisosController.selected != null}">
+                        <h:outputText value="#{mensajes.ViewPermisosLabel_idPermisos}"/>
+                        <h:outputText value="#{permisosController.selected.idPermisos}" title="#{mensajes.ViewPermisosTitle_idPermisos}"/>
+                        <h:outputText value="#{mensajes.ViewPermisosLabel_nombre}"/>
+                        <h:outputText value="#{permisosController.selected.nombre}" title="#{mensajes.ViewPermisosTitle_nombre}"/>
+                        <h:outputText value="#{mensajes.ViewPermisosLabel_url}"/>
+                        <h:outputText value="#{permisosController.selected.url}" title="#{mensajes.ViewPermisosTitle_url}"/>
+                        <h:outputText value="#{mensajes.ViewPermisosLabel_dependencia}"/>
+                        <h:outputText value="#{permisosController.selected.dependencia}" title="#{mensajes.ViewPermisosTitle_dependencia}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{mensajes.Close}" onclick="PermisosViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

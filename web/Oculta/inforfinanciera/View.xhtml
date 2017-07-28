@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="InforfinancieraViewDlg" widgetVar="InforfinancieraViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{mensajes.ViewInforfinancieraTitle}">
+            <h:form id="InforfinancieraViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{inforfinancieraController.selected != null}">
+                        <h:outputText value="#{mensajes.ViewInforfinancieraLabel_noRegistro}"/>
+                        <h:outputText value="#{inforfinancieraController.selected.noRegistro}" title="#{mensajes.ViewInforfinancieraTitle_noRegistro}"/>
+                        <h:outputText value="#{mensajes.ViewInforfinancieraLabel_fechaCorte}"/>
+                        <h:outputText value="#{inforfinancieraController.selected.fechaCorte}" title="#{mensajes.ViewInforfinancieraTitle_fechaCorte}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{mensajes.ViewInforfinancieraLabel_bancos}"/>
+                        <h:outputText value="#{inforfinancieraController.selected.bancos}" title="#{mensajes.ViewInforfinancieraTitle_bancos}"/>
+                        <h:outputText value="#{mensajes.ViewInforfinancieraLabel_cuentasxCobrar}"/>
+                        <h:outputText value="#{inforfinancieraController.selected.cuentasxCobrar}" title="#{mensajes.ViewInforfinancieraTitle_cuentasxCobrar}"/>
+                        <h:outputText value="#{mensajes.ViewInforfinancieraLabel_inventarios}"/>
+                        <h:outputText value="#{inforfinancieraController.selected.inventarios}" title="#{mensajes.ViewInforfinancieraTitle_inventarios}"/>
+                        <h:outputText value="#{mensajes.ViewInforfinancieraLabel_valoresRealizables}"/>
+                        <h:outputText value="#{inforfinancieraController.selected.valoresRealizables}" title="#{mensajes.ViewInforfinancieraTitle_valoresRealizables}"/>
+                        <h:outputText value="#{mensajes.ViewInforfinancieraLabel_activosCorrientes}"/>
+                        <h:outputText value="#{inforfinancieraController.selected.activosCorrientes}" title="#{mensajes.ViewInforfinancieraTitle_activosCorrientes}"/>
+                        <h:outputText value="#{mensajes.ViewInforfinancieraLabel_propiedadplantayEquipo}"/>
+                        <h:outputText value="#{inforfinancieraController.selected.propiedadplantayEquipo}" title="#{mensajes.ViewInforfinancieraTitle_propiedadplantayEquipo}"/>
+                        <h:outputText value="#{mensajes.ViewInforfinancieraLabel_activosNoCorrientes}"/>
+                        <h:outputText value="#{inforfinancieraController.selected.activosNoCorrientes}" title="#{mensajes.ViewInforfinancieraTitle_activosNoCorrientes}"/>
+                        <h:outputText value="#{mensajes.ViewInforfinancieraLabel_cuentasxPagar}"/>
+                        <h:outputText value="#{inforfinancieraController.selected.cuentasxPagar}" title="#{mensajes.ViewInforfinancieraTitle_cuentasxPagar}"/>
+                        <h:outputText value="#{mensajes.ViewInforfinancieraLabel_pasivosCorrientes}"/>
+                        <h:outputText value="#{inforfinancieraController.selected.pasivosCorrientes}" title="#{mensajes.ViewInforfinancieraTitle_pasivosCorrientes}"/>
+                        <h:outputText value="#{mensajes.ViewInforfinancieraLabel_otrosPasivos}"/>
+                        <h:outputText value="#{inforfinancieraController.selected.otrosPasivos}" title="#{mensajes.ViewInforfinancieraTitle_otrosPasivos}"/>
+                        <h:outputText value="#{mensajes.ViewInforfinancieraLabel_pasivosNoCorrientes}"/>
+                        <h:outputText value="#{inforfinancieraController.selected.pasivosNoCorrientes}" title="#{mensajes.ViewInforfinancieraTitle_pasivosNoCorrientes}"/>
+                        <h:outputText value="#{mensajes.ViewInforfinancieraLabel_patrimonio}"/>
+                        <h:outputText value="#{inforfinancieraController.selected.patrimonio}" title="#{mensajes.ViewInforfinancieraTitle_patrimonio}"/>
+                        <h:outputText value="#{mensajes.ViewInforfinancieraLabel_ingresosOperacionales}"/>
+                        <h:outputText value="#{inforfinancieraController.selected.ingresosOperacionales}" title="#{mensajes.ViewInforfinancieraTitle_ingresosOperacionales}"/>
+                        <h:outputText value="#{mensajes.ViewInforfinancieraLabel_costodeVentas}"/>
+                        <h:outputText value="#{inforfinancieraController.selected.costodeVentas}" title="#{mensajes.ViewInforfinancieraTitle_costodeVentas}"/>
+                        <h:outputText value="#{mensajes.ViewInforfinancieraLabel_ingresosNoOperacionales}"/>
+                        <h:outputText value="#{inforfinancieraController.selected.ingresosNoOperacionales}" title="#{mensajes.ViewInforfinancieraTitle_ingresosNoOperacionales}"/>
+                        <h:outputText value="#{mensajes.ViewInforfinancieraLabel_gastosdeVenta}"/>
+                        <h:outputText value="#{inforfinancieraController.selected.gastosdeVenta}" title="#{mensajes.ViewInforfinancieraTitle_gastosdeVenta}"/>
+                        <h:outputText value="#{mensajes.ViewInforfinancieraLabel_gastosdeAdministración}"/>
+                        <h:outputText value="#{inforfinancieraController.selected.gastosdeAdministración}" title="#{mensajes.ViewInforfinancieraTitle_gastosdeAdministración}"/>
+                        <h:outputText value="#{mensajes.ViewInforfinancieraLabel_otrosGastos}"/>
+                        <h:outputText value="#{inforfinancieraController.selected.otrosGastos}" title="#{mensajes.ViewInforfinancieraTitle_otrosGastos}"/>
+                        <h:outputText value="#{mensajes.ViewInforfinancieraLabel_ingresosFinancieros}"/>
+                        <h:outputText value="#{inforfinancieraController.selected.ingresosFinancieros}" title="#{mensajes.ViewInforfinancieraTitle_ingresosFinancieros}"/>
+                        <h:outputText value="#{mensajes.ViewInforfinancieraLabel_gastosFinancieros}"/>
+                        <h:outputText value="#{inforfinancieraController.selected.gastosFinancieros}" title="#{mensajes.ViewInforfinancieraTitle_gastosFinancieros}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{mensajes.Close}" onclick="InforfinancieraViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

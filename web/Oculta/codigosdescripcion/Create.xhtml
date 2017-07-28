@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CodigosdescripcionCreateDlg" widgetVar="CodigosdescripcionCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{mensajes.CreateCodigosdescripcionTitle}">
+            <h:form id="CodigosdescripcionCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{codigosdescripcionController.selected != null}">
+                        <p:outputLabel value="#{mensajes.CreateCodigosdescripcionLabel_codDescripcion}" for="codDescripcion" />
+                        <p:inputText id="codDescripcion" value="#{codigosdescripcionController.selected.codDescripcion}" title="#{mensajes.CreateCodigosdescripcionTitle_codDescripcion}" required="true" requiredMessage="#{mensajes.CreateCodigosdescripcionRequiredMessage_codDescripcion}"/>
+                        <p:outputLabel value="#{mensajes.CreateCodigosdescripcionLabel_descripcion}" for="descripcion" />
+                        <p:inputText id="descripcion" value="#{codigosdescripcionController.selected.descripcion}" title="#{mensajes.CreateCodigosdescripcionTitle_descripcion}" required="true" requiredMessage="#{mensajes.CreateCodigosdescripcionRequiredMessage_descripcion}"/>
+                        <p:outputLabel value="#{mensajes.CreateCodigosdescripcionLabel_activEconomica}" for="activEconomica" />
+                        <p:selectOneMenu id="activEconomica" value="#{codigosdescripcionController.selected.activEconomica}" required="true" requiredMessage="#{mensajes.EditCodigosdescripcionRequiredMessage_activEconomica}">
+                            <f:selectItems value="#{actividadesController.itemsAvailableSelectOne}"
+                                           var="activEconomicaItem"
+                                           itemValue="#{activEconomicaItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{codigosdescripcionController.create}" value="#{mensajes.Save}" update="display,:CodigosdescripcionListForm:datalist,:growl" oncomplete="handleSubmit(args,'CodigosdescripcionCreateDialog');"/>
+                    <p:commandButton value="#{mensajes.Cancel}" onclick="CodigosdescripcionCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

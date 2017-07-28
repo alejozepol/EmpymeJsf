@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MovimientosUsuariosEditDlg" widgetVar="MovimientosUsuariosEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{mensajes.EditMovimientosUsuariosTitle}">
+            <h:form id="MovimientosUsuariosEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{movimientosUsuariosController.selected != null}">
+                        <p:outputLabel value="#{mensajes.EditMovimientosUsuariosLabel_idMovimiento}" for="idMovimiento" />
+                        <p:inputText id="idMovimiento" value="#{movimientosUsuariosController.selected.idMovimiento}" title="#{mensajes.EditMovimientosUsuariosTitle_idMovimiento}" required="true" requiredMessage="#{mensajes.EditMovimientosUsuariosRequiredMessage_idMovimiento}"/>
+                        <p:outputLabel value="#{mensajes.EditMovimientosUsuariosLabel_movimiento}" for="movimiento" />
+                        <p:inputText id="movimiento" value="#{movimientosUsuariosController.selected.movimiento}" title="#{mensajes.EditMovimientosUsuariosTitle_movimiento}" />
+                        <p:outputLabel value="#{mensajes.EditMovimientosUsuariosLabel_identificacion}" for="identificacion" />
+                        <p:inputText id="identificacion" value="#{movimientosUsuariosController.selected.identificacion}" title="#{mensajes.EditMovimientosUsuariosTitle_identificacion}" />
+                        <p:outputLabel value="#{mensajes.EditMovimientosUsuariosLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{movimientosUsuariosController.selected.nombre}" title="#{mensajes.EditMovimientosUsuariosTitle_nombre}" />
+                        <p:outputLabel value="#{mensajes.EditMovimientosUsuariosLabel_apellido}" for="apellido" />
+                        <p:inputText id="apellido" value="#{movimientosUsuariosController.selected.apellido}" title="#{mensajes.EditMovimientosUsuariosTitle_apellido}" />
+                        <p:outputLabel value="#{mensajes.EditMovimientosUsuariosLabel_telefono}" for="telefono" />
+                        <p:inputText id="telefono" value="#{movimientosUsuariosController.selected.telefono}" title="#{mensajes.EditMovimientosUsuariosTitle_telefono}" />
+                        <p:outputLabel value="#{mensajes.EditMovimientosUsuariosLabel_celular}" for="celular" />
+                        <p:inputText id="celular" value="#{movimientosUsuariosController.selected.celular}" title="#{mensajes.EditMovimientosUsuariosTitle_celular}" />
+                        <p:outputLabel value="#{mensajes.EditMovimientosUsuariosLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{movimientosUsuariosController.selected.email}" title="#{mensajes.EditMovimientosUsuariosTitle_email}" />
+                        <p:outputLabel value="#{mensajes.EditMovimientosUsuariosLabel_fechaRegistro}" for="fechaRegistro" />
+                        <p:calendar id="fechaRegistro" pattern="MM/dd/yyyy" value="#{movimientosUsuariosController.selected.fechaRegistro}" title="#{mensajes.EditMovimientosUsuariosTitle_fechaRegistro}"  showOn="button"/>
+                        <p:outputLabel value="#{mensajes.EditMovimientosUsuariosLabel_cargo}" for="cargo" />
+                        <p:inputText id="cargo" value="#{movimientosUsuariosController.selected.cargo}" title="#{mensajes.EditMovimientosUsuariosTitle_cargo}" />
+                        <p:outputLabel value="#{mensajes.EditMovimientosUsuariosLabel_usuario}" for="usuario" />
+                        <p:inputText id="usuario" value="#{movimientosUsuariosController.selected.usuario}" title="#{mensajes.EditMovimientosUsuariosTitle_usuario}" />
+                        <p:outputLabel value="#{mensajes.EditMovimientosUsuariosLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{movimientosUsuariosController.selected.fecha}" title="#{mensajes.EditMovimientosUsuariosTitle_fecha}"  showOn="button"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{movimientosUsuariosController.update}" value="#{mensajes.Save}" update="display,:MovimientosUsuariosListForm:datalist,:growl" oncomplete="handleSubmit(args, 'MovimientosUsuariosEditDialog');"/>
+                    <p:commandButton value="#{mensajes.Cancel}" onclick="MovimientosUsuariosEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

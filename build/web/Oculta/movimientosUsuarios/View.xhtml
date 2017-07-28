@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MovimientosUsuariosViewDlg" widgetVar="MovimientosUsuariosViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{mensajes.ViewMovimientosUsuariosTitle}">
+            <h:form id="MovimientosUsuariosViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{movimientosUsuariosController.selected != null}">
+                        <h:outputText value="#{mensajes.ViewMovimientosUsuariosLabel_idMovimiento}"/>
+                        <h:outputText value="#{movimientosUsuariosController.selected.idMovimiento}" title="#{mensajes.ViewMovimientosUsuariosTitle_idMovimiento}"/>
+                        <h:outputText value="#{mensajes.ViewMovimientosUsuariosLabel_movimiento}"/>
+                        <h:outputText value="#{movimientosUsuariosController.selected.movimiento}" title="#{mensajes.ViewMovimientosUsuariosTitle_movimiento}"/>
+                        <h:outputText value="#{mensajes.ViewMovimientosUsuariosLabel_identificacion}"/>
+                        <h:outputText value="#{movimientosUsuariosController.selected.identificacion}" title="#{mensajes.ViewMovimientosUsuariosTitle_identificacion}"/>
+                        <h:outputText value="#{mensajes.ViewMovimientosUsuariosLabel_nombre}"/>
+                        <h:outputText value="#{movimientosUsuariosController.selected.nombre}" title="#{mensajes.ViewMovimientosUsuariosTitle_nombre}"/>
+                        <h:outputText value="#{mensajes.ViewMovimientosUsuariosLabel_apellido}"/>
+                        <h:outputText value="#{movimientosUsuariosController.selected.apellido}" title="#{mensajes.ViewMovimientosUsuariosTitle_apellido}"/>
+                        <h:outputText value="#{mensajes.ViewMovimientosUsuariosLabel_telefono}"/>
+                        <h:outputText value="#{movimientosUsuariosController.selected.telefono}" title="#{mensajes.ViewMovimientosUsuariosTitle_telefono}"/>
+                        <h:outputText value="#{mensajes.ViewMovimientosUsuariosLabel_celular}"/>
+                        <h:outputText value="#{movimientosUsuariosController.selected.celular}" title="#{mensajes.ViewMovimientosUsuariosTitle_celular}"/>
+                        <h:outputText value="#{mensajes.ViewMovimientosUsuariosLabel_email}"/>
+                        <h:outputText value="#{movimientosUsuariosController.selected.email}" title="#{mensajes.ViewMovimientosUsuariosTitle_email}"/>
+                        <h:outputText value="#{mensajes.ViewMovimientosUsuariosLabel_fechaRegistro}"/>
+                        <h:outputText value="#{movimientosUsuariosController.selected.fechaRegistro}" title="#{mensajes.ViewMovimientosUsuariosTitle_fechaRegistro}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{mensajes.ViewMovimientosUsuariosLabel_cargo}"/>
+                        <h:outputText value="#{movimientosUsuariosController.selected.cargo}" title="#{mensajes.ViewMovimientosUsuariosTitle_cargo}"/>
+                        <h:outputText value="#{mensajes.ViewMovimientosUsuariosLabel_usuario}"/>
+                        <h:outputText value="#{movimientosUsuariosController.selected.usuario}" title="#{mensajes.ViewMovimientosUsuariosTitle_usuario}"/>
+                        <h:outputText value="#{mensajes.ViewMovimientosUsuariosLabel_fecha}"/>
+                        <h:outputText value="#{movimientosUsuariosController.selected.fecha}" title="#{mensajes.ViewMovimientosUsuariosTitle_fecha}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:panelGrid>
+                    <p:commandButton value="#{mensajes.Close}" onclick="MovimientosUsuariosViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

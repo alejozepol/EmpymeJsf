@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TiposdesociedadesCreateDlg" widgetVar="TiposdesociedadesCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{mensajes.CreateTiposdesociedadesTitle}">
+            <h:form id="TiposdesociedadesCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tiposdesociedadesController.selected != null}">
+                        <p:outputLabel value="#{mensajes.CreateTiposdesociedadesLabel_codigo}" for="codigo" />
+                        <p:inputText id="codigo" value="#{tiposdesociedadesController.selected.codigo}" title="#{mensajes.CreateTiposdesociedadesTitle_codigo}" required="true" requiredMessage="#{mensajes.CreateTiposdesociedadesRequiredMessage_codigo}"/>
+                        <p:outputLabel value="#{mensajes.CreateTiposdesociedadesLabel_tipoSociedad}" for="tipoSociedad" />
+                        <p:inputText id="tipoSociedad" value="#{tiposdesociedadesController.selected.tipoSociedad}" title="#{mensajes.CreateTiposdesociedadesTitle_tipoSociedad}" required="true" requiredMessage="#{mensajes.CreateTiposdesociedadesRequiredMessage_tipoSociedad}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tiposdesociedadesController.create}" value="#{mensajes.Save}" update="display,:TiposdesociedadesListForm:datalist,:growl" oncomplete="handleSubmit(args,'TiposdesociedadesCreateDialog');"/>
+                    <p:commandButton value="#{mensajes.Cancel}" onclick="TiposdesociedadesCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{mensajes.ListCodigosdescripcionTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="CodigosdescripcionListForm">
+                <p:panel header="#{mensajes.ListCodigosdescripcionTitle}">
+                    <p:dataTable id="datalist" value="#{codigosdescripcionController.items}" var="item"
+                                 selectionMode="single" selection="#{codigosdescripcionController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.codDescripcion}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListCodigosdescripcionTitle_codDescripcion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codDescripcion}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListCodigosdescripcionTitle_descripcion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.descripcion}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListCodigosdescripcionTitle_activEconomica}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.activEconomica}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{mensajes.Create}" actionListener="#{codigosdescripcionController.prepareCreate}" update=":CodigosdescripcionCreateForm" oncomplete="PF('CodigosdescripcionCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{mensajes.View}" update=":CodigosdescripcionViewForm" oncomplete="PF('CodigosdescripcionViewDialog').show()" disabled="#{empty codigosdescripcionController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{mensajes.Edit}" update=":CodigosdescripcionEditForm" oncomplete="PF('CodigosdescripcionEditDialog').show()" disabled="#{empty codigosdescripcionController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{mensajes.Delete}" actionListener="#{codigosdescripcionController.destroy}" update=":growl,datalist" disabled="#{empty codigosdescripcionController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

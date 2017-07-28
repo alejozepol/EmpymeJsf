@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{mensajes.ListInforfinancieraTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="InforfinancieraListForm">
+                <p:panel header="#{mensajes.ListInforfinancieraTitle}">
+                    <p:dataTable id="datalist" value="#{inforfinancieraController.items}" var="item"
+                                 selectionMode="single" selection="#{inforfinancieraController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.noRegistro}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListInforfinancieraTitle_noRegistro}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.noRegistro}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListInforfinancieraTitle_fechaCorte}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaCorte}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListInforfinancieraTitle_bancos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.bancos}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListInforfinancieraTitle_cuentasxCobrar}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cuentasxCobrar}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListInforfinancieraTitle_inventarios}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.inventarios}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListInforfinancieraTitle_valoresRealizables}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.valoresRealizables}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListInforfinancieraTitle_activosCorrientes}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.activosCorrientes}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListInforfinancieraTitle_propiedadplantayEquipo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.propiedadplantayEquipo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListInforfinancieraTitle_activosNoCorrientes}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.activosNoCorrientes}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListInforfinancieraTitle_cuentasxPagar}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cuentasxPagar}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListInforfinancieraTitle_pasivosCorrientes}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pasivosCorrientes}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListInforfinancieraTitle_otrosPasivos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.otrosPasivos}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListInforfinancieraTitle_pasivosNoCorrientes}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pasivosNoCorrientes}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListInforfinancieraTitle_patrimonio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.patrimonio}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListInforfinancieraTitle_ingresosOperacionales}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ingresosOperacionales}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListInforfinancieraTitle_costodeVentas}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.costodeVentas}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListInforfinancieraTitle_ingresosNoOperacionales}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ingresosNoOperacionales}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListInforfinancieraTitle_gastosdeVenta}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.gastosdeVenta}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListInforfinancieraTitle_gastosdeAdministración}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.gastosdeAdministración}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListInforfinancieraTitle_otrosGastos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.otrosGastos}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListInforfinancieraTitle_ingresosFinancieros}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ingresosFinancieros}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListInforfinancieraTitle_gastosFinancieros}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.gastosFinancieros}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{mensajes.Create}" actionListener="#{inforfinancieraController.prepareCreate}" update=":InforfinancieraCreateForm" oncomplete="PF('InforfinancieraCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{mensajes.View}" update=":InforfinancieraViewForm" oncomplete="PF('InforfinancieraViewDialog').show()" disabled="#{empty inforfinancieraController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{mensajes.Edit}" update=":InforfinancieraEditForm" oncomplete="PF('InforfinancieraEditDialog').show()" disabled="#{empty inforfinancieraController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{mensajes.Delete}" actionListener="#{inforfinancieraController.destroy}" update=":growl,datalist" disabled="#{empty inforfinancieraController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

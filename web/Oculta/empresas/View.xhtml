@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EmpresasViewDlg" widgetVar="EmpresasViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{mensajes.ViewEmpresasTitle}">
+            <h:form id="EmpresasViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{empresasController.selected != null}">
+                        <h:outputText value="#{mensajes.ViewEmpresasLabel_nit}"/>
+                        <h:outputText value="#{empresasController.selected.nit}" title="#{mensajes.ViewEmpresasTitle_nit}"/>
+                        <h:outputText value="#{mensajes.ViewEmpresasLabel_razonSocial}"/>
+                        <h:outputText value="#{empresasController.selected.razonSocial}" title="#{mensajes.ViewEmpresasTitle_razonSocial}"/>
+                        <h:outputText value="#{mensajes.ViewEmpresasLabel_direccion}"/>
+                        <h:outputText value="#{empresasController.selected.direccion}" title="#{mensajes.ViewEmpresasTitle_direccion}"/>
+                        <h:outputText value="#{mensajes.ViewEmpresasLabel_telefono}"/>
+                        <h:outputText value="#{empresasController.selected.telefono}" title="#{mensajes.ViewEmpresasTitle_telefono}"/>
+                        <h:outputText value="#{mensajes.ViewEmpresasLabel_paginaWeb}"/>
+                        <h:outputText value="#{empresasController.selected.paginaWeb}" title="#{mensajes.ViewEmpresasTitle_paginaWeb}"/>
+                        <h:outputText value="#{mensajes.ViewEmpresasLabel_fechaConstitucion}"/>
+                        <h:outputText value="#{empresasController.selected.fechaConstitucion}" title="#{mensajes.ViewEmpresasTitle_fechaConstitucion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{mensajes.ViewEmpresasLabel_objetoSocial}"/>
+                        <h:outputText value="#{empresasController.selected.objetoSocial}" title="#{mensajes.ViewEmpresasTitle_objetoSocial}"/>
+                        <h:outputText value="#{mensajes.ViewEmpresasLabel_establecimientos}"/>
+                        <h:outputText value="#{empresasController.selected.establecimientos}" title="#{mensajes.ViewEmpresasTitle_establecimientos}"/>
+                        <h:outputText value="#{mensajes.ViewEmpresasLabel_numEmpleados}"/>
+                        <h:outputText value="#{empresasController.selected.numEmpleados}" title="#{mensajes.ViewEmpresasTitle_numEmpleados}"/>
+                        <h:outputText value="#{mensajes.ViewEmpresasLabel_archivo}"/>
+                        <h:outputText value="#{empresasController.selected.archivo}" title="#{mensajes.ViewEmpresasTitle_archivo}"/>
+                        <h:outputText value="#{mensajes.ViewEmpresasLabel_ciiu}"/>
+                        <h:outputText value="#{empresasController.selected.ciiu}" title="#{mensajes.ViewEmpresasTitle_ciiu}"/>
+                        <h:outputText value="#{mensajes.ViewEmpresasLabel_estado}"/>
+                        <h:outputText value="#{empresasController.selected.estado}" title="#{mensajes.ViewEmpresasTitle_estado}"/>
+                        <h:outputText value="#{mensajes.ViewEmpresasLabel_formaJuridica}"/>
+                        <h:outputText value="#{empresasController.selected.formaJuridica}" title="#{mensajes.ViewEmpresasTitle_formaJuridica}"/>
+                        <h:outputText value="#{mensajes.ViewEmpresasLabel_tipo}"/>
+                        <h:outputText value="#{empresasController.selected.tipo}" title="#{mensajes.ViewEmpresasTitle_tipo}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{mensajes.Close}" onclick="EmpresasViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

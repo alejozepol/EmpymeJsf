@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MovimientosEmpresasViewDlg" widgetVar="MovimientosEmpresasViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{mensajes.ViewMovimientosEmpresasTitle}">
+            <h:form id="MovimientosEmpresasViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{movimientosEmpresasController.selected != null}">
+                        <h:outputText value="#{mensajes.ViewMovimientosEmpresasLabel_idMovimiento}"/>
+                        <h:outputText value="#{movimientosEmpresasController.selected.idMovimiento}" title="#{mensajes.ViewMovimientosEmpresasTitle_idMovimiento}"/>
+                        <h:outputText value="#{mensajes.ViewMovimientosEmpresasLabel_movimiento}"/>
+                        <h:outputText value="#{movimientosEmpresasController.selected.movimiento}" title="#{mensajes.ViewMovimientosEmpresasTitle_movimiento}"/>
+                        <h:outputText value="#{mensajes.ViewMovimientosEmpresasLabel_nit}"/>
+                        <h:outputText value="#{movimientosEmpresasController.selected.nit}" title="#{mensajes.ViewMovimientosEmpresasTitle_nit}"/>
+                        <h:outputText value="#{mensajes.ViewMovimientosEmpresasLabel_razonSocial}"/>
+                        <h:outputText value="#{movimientosEmpresasController.selected.razonSocial}" title="#{mensajes.ViewMovimientosEmpresasTitle_razonSocial}"/>
+                        <h:outputText value="#{mensajes.ViewMovimientosEmpresasLabel_dirección}"/>
+                        <h:outputText value="#{movimientosEmpresasController.selected.dirección}" title="#{mensajes.ViewMovimientosEmpresasTitle_dirección}"/>
+                        <h:outputText value="#{mensajes.ViewMovimientosEmpresasLabel_telefono}"/>
+                        <h:outputText value="#{movimientosEmpresasController.selected.telefono}" title="#{mensajes.ViewMovimientosEmpresasTitle_telefono}"/>
+                        <h:outputText value="#{mensajes.ViewMovimientosEmpresasLabel_paginaWeb}"/>
+                        <h:outputText value="#{movimientosEmpresasController.selected.paginaWeb}" title="#{mensajes.ViewMovimientosEmpresasTitle_paginaWeb}"/>
+                        <h:outputText value="#{mensajes.ViewMovimientosEmpresasLabel_fechaConstitucion}"/>
+                        <h:outputText value="#{movimientosEmpresasController.selected.fechaConstitucion}" title="#{mensajes.ViewMovimientosEmpresasTitle_fechaConstitucion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{mensajes.ViewMovimientosEmpresasLabel_ciiu}"/>
+                        <h:outputText value="#{movimientosEmpresasController.selected.ciiu}" title="#{mensajes.ViewMovimientosEmpresasTitle_ciiu}"/>
+                        <h:outputText value="#{mensajes.ViewMovimientosEmpresasLabel_estado}"/>
+                        <h:outputText value="#{movimientosEmpresasController.selected.estado}" title="#{mensajes.ViewMovimientosEmpresasTitle_estado}"/>
+                        <h:outputText value="#{mensajes.ViewMovimientosEmpresasLabel_formaJuridica}"/>
+                        <h:outputText value="#{movimientosEmpresasController.selected.formaJuridica}" title="#{mensajes.ViewMovimientosEmpresasTitle_formaJuridica}"/>
+                        <h:outputText value="#{mensajes.ViewMovimientosEmpresasLabel_objetoSocial}"/>
+                        <h:outputText value="#{movimientosEmpresasController.selected.objetoSocial}" title="#{mensajes.ViewMovimientosEmpresasTitle_objetoSocial}"/>
+                        <h:outputText value="#{mensajes.ViewMovimientosEmpresasLabel_establecimientos}"/>
+                        <h:outputText value="#{movimientosEmpresasController.selected.establecimientos}" title="#{mensajes.ViewMovimientosEmpresasTitle_establecimientos}"/>
+                        <h:outputText value="#{mensajes.ViewMovimientosEmpresasLabel_numEmpleados}"/>
+                        <h:outputText value="#{movimientosEmpresasController.selected.numEmpleados}" title="#{mensajes.ViewMovimientosEmpresasTitle_numEmpleados}"/>
+                        <h:outputText value="#{mensajes.ViewMovimientosEmpresasLabel_usuario}"/>
+                        <h:outputText value="#{movimientosEmpresasController.selected.usuario}" title="#{mensajes.ViewMovimientosEmpresasTitle_usuario}"/>
+                        <h:outputText value="#{mensajes.ViewMovimientosEmpresasLabel_fecha}"/>
+                        <h:outputText value="#{movimientosEmpresasController.selected.fecha}" title="#{mensajes.ViewMovimientosEmpresasTitle_fecha}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:panelGrid>
+                    <p:commandButton value="#{mensajes.Close}" onclick="MovimientosEmpresasViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

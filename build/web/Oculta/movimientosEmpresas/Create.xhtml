@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MovimientosEmpresasCreateDlg" widgetVar="MovimientosEmpresasCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{mensajes.CreateMovimientosEmpresasTitle}">
+            <h:form id="MovimientosEmpresasCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{movimientosEmpresasController.selected != null}">
+                        <p:outputLabel value="#{mensajes.CreateMovimientosEmpresasLabel_idMovimiento}" for="idMovimiento" />
+                        <p:inputText id="idMovimiento" value="#{movimientosEmpresasController.selected.idMovimiento}" title="#{mensajes.CreateMovimientosEmpresasTitle_idMovimiento}" required="true" requiredMessage="#{mensajes.CreateMovimientosEmpresasRequiredMessage_idMovimiento}"/>
+                        <p:outputLabel value="#{mensajes.CreateMovimientosEmpresasLabel_movimiento}" for="movimiento" />
+                        <p:inputText id="movimiento" value="#{movimientosEmpresasController.selected.movimiento}" title="#{mensajes.CreateMovimientosEmpresasTitle_movimiento}" />
+                        <p:outputLabel value="#{mensajes.CreateMovimientosEmpresasLabel_nit}" for="nit" />
+                        <p:inputText id="nit" value="#{movimientosEmpresasController.selected.nit}" title="#{mensajes.CreateMovimientosEmpresasTitle_nit}" />
+                        <p:outputLabel value="#{mensajes.CreateMovimientosEmpresasLabel_razonSocial}" for="razonSocial" />
+                        <p:inputText id="razonSocial" value="#{movimientosEmpresasController.selected.razonSocial}" title="#{mensajes.CreateMovimientosEmpresasTitle_razonSocial}" />
+                        <p:outputLabel value="#{mensajes.CreateMovimientosEmpresasLabel_dirección}" for="dirección" />
+                        <p:inputText id="dirección" value="#{movimientosEmpresasController.selected.dirección}" title="#{mensajes.CreateMovimientosEmpresasTitle_dirección}" />
+                        <p:outputLabel value="#{mensajes.CreateMovimientosEmpresasLabel_telefono}" for="telefono" />
+                        <p:inputText id="telefono" value="#{movimientosEmpresasController.selected.telefono}" title="#{mensajes.CreateMovimientosEmpresasTitle_telefono}" />
+                        <p:outputLabel value="#{mensajes.CreateMovimientosEmpresasLabel_paginaWeb}" for="paginaWeb" />
+                        <p:inputText id="paginaWeb" value="#{movimientosEmpresasController.selected.paginaWeb}" title="#{mensajes.CreateMovimientosEmpresasTitle_paginaWeb}" />
+                        <p:outputLabel value="#{mensajes.CreateMovimientosEmpresasLabel_fechaConstitucion}" for="fechaConstitucion" />
+                        <p:calendar id="fechaConstitucion" pattern="MM/dd/yyyy" value="#{movimientosEmpresasController.selected.fechaConstitucion}" title="#{mensajes.EditMovimientosEmpresasTitle_fechaConstitucion}"  showOn="button"/>
+                        <p:outputLabel value="#{mensajes.CreateMovimientosEmpresasLabel_ciiu}" for="ciiu" />
+                        <p:inputText id="ciiu" value="#{movimientosEmpresasController.selected.ciiu}" title="#{mensajes.CreateMovimientosEmpresasTitle_ciiu}" />
+                        <p:outputLabel value="#{mensajes.CreateMovimientosEmpresasLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{movimientosEmpresasController.selected.estado}" title="#{mensajes.CreateMovimientosEmpresasTitle_estado}" />
+                        <p:outputLabel value="#{mensajes.CreateMovimientosEmpresasLabel_formaJuridica}" for="formaJuridica" />
+                        <p:inputText id="formaJuridica" value="#{movimientosEmpresasController.selected.formaJuridica}" title="#{mensajes.CreateMovimientosEmpresasTitle_formaJuridica}" />
+                        <p:outputLabel value="#{mensajes.CreateMovimientosEmpresasLabel_objetoSocial}" for="objetoSocial" />
+                        <p:inputText id="objetoSocial" value="#{movimientosEmpresasController.selected.objetoSocial}" title="#{mensajes.CreateMovimientosEmpresasTitle_objetoSocial}" />
+                        <p:outputLabel value="#{mensajes.CreateMovimientosEmpresasLabel_establecimientos}" for="establecimientos" />
+                        <p:inputText id="establecimientos" value="#{movimientosEmpresasController.selected.establecimientos}" title="#{mensajes.CreateMovimientosEmpresasTitle_establecimientos}" />
+                        <p:outputLabel value="#{mensajes.CreateMovimientosEmpresasLabel_numEmpleados}" for="numEmpleados" />
+                        <p:inputText id="numEmpleados" value="#{movimientosEmpresasController.selected.numEmpleados}" title="#{mensajes.CreateMovimientosEmpresasTitle_numEmpleados}" />
+                        <p:outputLabel value="#{mensajes.CreateMovimientosEmpresasLabel_usuario}" for="usuario" />
+                        <p:inputText id="usuario" value="#{movimientosEmpresasController.selected.usuario}" title="#{mensajes.CreateMovimientosEmpresasTitle_usuario}" />
+                        <p:outputLabel value="#{mensajes.CreateMovimientosEmpresasLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{movimientosEmpresasController.selected.fecha}" title="#{mensajes.EditMovimientosEmpresasTitle_fecha}"  showOn="button"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{movimientosEmpresasController.create}" value="#{mensajes.Save}" update="display,:MovimientosEmpresasListForm:datalist,:growl" oncomplete="handleSubmit(args,'MovimientosEmpresasCreateDialog');"/>
+                    <p:commandButton value="#{mensajes.Cancel}" onclick="MovimientosEmpresasCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

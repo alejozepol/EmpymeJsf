@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="RepresentantesEditDlg" widgetVar="RepresentantesEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{mensajes.EditRepresentantesTitle}">
+            <h:form id="RepresentantesEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{representantesController.selected != null}">
+                        <p:outputLabel value="#{mensajes.EditRepresentantesLabel_identificacion}" for="identificacion" />
+                        <p:inputText id="identificacion" value="#{representantesController.selected.identificacion}" title="#{mensajes.EditRepresentantesTitle_identificacion}" required="true" requiredMessage="#{mensajes.EditRepresentantesRequiredMessage_identificacion}"/>
+                        <p:outputLabel value="#{mensajes.EditRepresentantesLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{representantesController.selected.nombre}" title="#{mensajes.EditRepresentantesTitle_nombre}" required="true" requiredMessage="#{mensajes.EditRepresentantesRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{mensajes.EditRepresentantesLabel_apellido}" for="apellido" />
+                        <p:inputText id="apellido" value="#{representantesController.selected.apellido}" title="#{mensajes.EditRepresentantesTitle_apellido}" required="true" requiredMessage="#{mensajes.EditRepresentantesRequiredMessage_apellido}"/>
+                        <p:outputLabel value="#{mensajes.EditRepresentantesLabel_telefono}" for="telefono" />
+                        <p:inputText id="telefono" value="#{representantesController.selected.telefono}" title="#{mensajes.EditRepresentantesTitle_telefono}" required="true" requiredMessage="#{mensajes.EditRepresentantesRequiredMessage_telefono}"/>
+                        <p:outputLabel value="#{mensajes.EditRepresentantesLabel_celular}" for="celular" />
+                        <p:inputText id="celular" value="#{representantesController.selected.celular}" title="#{mensajes.EditRepresentantesTitle_celular}" required="true" requiredMessage="#{mensajes.EditRepresentantesRequiredMessage_celular}"/>
+                        <p:outputLabel value="#{mensajes.EditRepresentantesLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{representantesController.selected.email}" title="#{mensajes.EditRepresentantesTitle_email}" required="true" requiredMessage="#{mensajes.EditRepresentantesRequiredMessage_email}"/>
+                        <p:outputLabel value="#{mensajes.EditRepresentantesLabel_fechaRegistro}" for="fechaRegistro" />
+                        <p:calendar id="fechaRegistro" pattern="MM/dd/yyyy" value="#{representantesController.selected.fechaRegistro}" title="#{mensajes.EditRepresentantesTitle_fechaRegistro}" required="true" requiredMessage="#{mensajes.EditRepresentantesRequiredMessage_fechaRegistro}" showOn="button"/>
+                        <p:outputLabel value="#{mensajes.EditRepresentantesLabel_fotocopia}" for="fotocopia" />
+                        <p:inputText id="fotocopia" value="#{representantesController.selected.fotocopia}" title="#{mensajes.EditRepresentantesTitle_fotocopia}" required="true" requiredMessage="#{mensajes.EditRepresentantesRequiredMessage_fotocopia}"/>
+                        <p:outputLabel value="#{mensajes.EditRepresentantesLabel_cargo}" for="cargo" />
+                        <p:selectOneMenu id="cargo" value="#{representantesController.selected.cargo}" required="true" requiredMessage="#{mensajes.EditRepresentantesRequiredMessage_cargo}">
+                            <f:selectItem itemLabel="#{mensajes.SelectOneMessage}"/>
+                            <f:selectItems value="#{cargosController.itemsAvailableSelectOne}"
+                                           var="cargoItem"
+                                           itemValue="#{cargoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{mensajes.EditRepresentantesLabel_docTipo}" for="docTipo" />
+                        <p:selectOneMenu id="docTipo" value="#{representantesController.selected.docTipo}" required="true" requiredMessage="#{mensajes.EditRepresentantesRequiredMessage_docTipo}">
+                            <f:selectItem itemLabel="#{mensajes.SelectOneMessage}"/>
+                            <f:selectItems value="#{tipodocController.itemsAvailableSelectOne}"
+                                           var="docTipoItem"
+                                           itemValue="#{docTipoItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{representantesController.update}" value="#{mensajes.Save}" update="display,:RepresentantesListForm:datalist,:growl" oncomplete="handleSubmit(args, 'RepresentantesEditDialog');"/>
+                    <p:commandButton value="#{mensajes.Cancel}" onclick="RepresentantesEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

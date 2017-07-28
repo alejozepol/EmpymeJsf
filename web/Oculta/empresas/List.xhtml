@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{mensajes.ListEmpresasTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="EmpresasListForm">
+                <p:panel header="#{mensajes.ListEmpresasTitle}">
+                    <p:dataTable id="datalist" value="#{empresasController.items}" var="item"
+                                 selectionMode="single" selection="#{empresasController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.nit}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListEmpresasTitle_nit}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nit}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListEmpresasTitle_razonSocial}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.razonSocial}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListEmpresasTitle_direccion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.direccion}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListEmpresasTitle_telefono}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.telefono}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListEmpresasTitle_paginaWeb}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.paginaWeb}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListEmpresasTitle_fechaConstitucion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaConstitucion}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListEmpresasTitle_objetoSocial}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.objetoSocial}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListEmpresasTitle_establecimientos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.establecimientos}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListEmpresasTitle_numEmpleados}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numEmpleados}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListEmpresasTitle_archivo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.archivo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListEmpresasTitle_ciiu}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ciiu}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListEmpresasTitle_estado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estado}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListEmpresasTitle_formaJuridica}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.formaJuridica}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{mensajes.ListEmpresasTitle_tipo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tipo}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{mensajes.Create}" actionListener="#{empresasController.prepareCreate}" update=":EmpresasCreateForm" oncomplete="PF('EmpresasCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{mensajes.View}" update=":EmpresasViewForm" oncomplete="PF('EmpresasViewDialog').show()" disabled="#{empty empresasController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{mensajes.Edit}" update=":EmpresasEditForm" oncomplete="PF('EmpresasEditDialog').show()" disabled="#{empty empresasController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{mensajes.Delete}" actionListener="#{empresasController.destroy}" update=":growl,datalist" disabled="#{empty empresasController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="InforfinancieraEditDlg" widgetVar="InforfinancieraEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{mensajes.EditInforfinancieraTitle}">
+            <h:form id="InforfinancieraEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{inforfinancieraController.selected != null}">
+                        <p:outputLabel value="#{mensajes.EditInforfinancieraLabel_noRegistro}" for="noRegistro" />
+                        <p:inputText id="noRegistro" value="#{inforfinancieraController.selected.noRegistro}" title="#{mensajes.EditInforfinancieraTitle_noRegistro}" required="true" requiredMessage="#{mensajes.EditInforfinancieraRequiredMessage_noRegistro}"/>
+                        <p:outputLabel value="#{mensajes.EditInforfinancieraLabel_fechaCorte}" for="fechaCorte" />
+                        <p:calendar id="fechaCorte" pattern="MM/dd/yyyy" value="#{inforfinancieraController.selected.fechaCorte}" title="#{mensajes.EditInforfinancieraTitle_fechaCorte}" required="true" requiredMessage="#{mensajes.EditInforfinancieraRequiredMessage_fechaCorte}" showOn="button"/>
+                        <p:outputLabel value="#{mensajes.EditInforfinancieraLabel_bancos}" for="bancos" />
+                        <p:inputText id="bancos" value="#{inforfinancieraController.selected.bancos}" title="#{mensajes.EditInforfinancieraTitle_bancos}" required="true" requiredMessage="#{mensajes.EditInforfinancieraRequiredMessage_bancos}"/>
+                        <p:outputLabel value="#{mensajes.EditInforfinancieraLabel_cuentasxCobrar}" for="cuentasxCobrar" />
+                        <p:inputText id="cuentasxCobrar" value="#{inforfinancieraController.selected.cuentasxCobrar}" title="#{mensajes.EditInforfinancieraTitle_cuentasxCobrar}" required="true" requiredMessage="#{mensajes.EditInforfinancieraRequiredMessage_cuentasxCobrar}"/>
+                        <p:outputLabel value="#{mensajes.EditInforfinancieraLabel_inventarios}" for="inventarios" />
+                        <p:inputText id="inventarios" value="#{inforfinancieraController.selected.inventarios}" title="#{mensajes.EditInforfinancieraTitle_inventarios}" required="true" requiredMessage="#{mensajes.EditInforfinancieraRequiredMessage_inventarios}"/>
+                        <p:outputLabel value="#{mensajes.EditInforfinancieraLabel_valoresRealizables}" for="valoresRealizables" />
+                        <p:inputText id="valoresRealizables" value="#{inforfinancieraController.selected.valoresRealizables}" title="#{mensajes.EditInforfinancieraTitle_valoresRealizables}" required="true" requiredMessage="#{mensajes.EditInforfinancieraRequiredMessage_valoresRealizables}"/>
+                        <p:outputLabel value="#{mensajes.EditInforfinancieraLabel_activosCorrientes}" for="activosCorrientes" />
+                        <p:inputText id="activosCorrientes" value="#{inforfinancieraController.selected.activosCorrientes}" title="#{mensajes.EditInforfinancieraTitle_activosCorrientes}" required="true" requiredMessage="#{mensajes.EditInforfinancieraRequiredMessage_activosCorrientes}"/>
+                        <p:outputLabel value="#{mensajes.EditInforfinancieraLabel_propiedadplantayEquipo}" for="propiedadplantayEquipo" />
+                        <p:inputText id="propiedadplantayEquipo" value="#{inforfinancieraController.selected.propiedadplantayEquipo}" title="#{mensajes.EditInforfinancieraTitle_propiedadplantayEquipo}" required="true" requiredMessage="#{mensajes.EditInforfinancieraRequiredMessage_propiedadplantayEquipo}"/>
+                        <p:outputLabel value="#{mensajes.EditInforfinancieraLabel_activosNoCorrientes}" for="activosNoCorrientes" />
+                        <p:inputText id="activosNoCorrientes" value="#{inforfinancieraController.selected.activosNoCorrientes}" title="#{mensajes.EditInforfinancieraTitle_activosNoCorrientes}" required="true" requiredMessage="#{mensajes.EditInforfinancieraRequiredMessage_activosNoCorrientes}"/>
+                        <p:outputLabel value="#{mensajes.EditInforfinancieraLabel_cuentasxPagar}" for="cuentasxPagar" />
+                        <p:inputText id="cuentasxPagar" value="#{inforfinancieraController.selected.cuentasxPagar}" title="#{mensajes.EditInforfinancieraTitle_cuentasxPagar}" required="true" requiredMessage="#{mensajes.EditInforfinancieraRequiredMessage_cuentasxPagar}"/>
+                        <p:outputLabel value="#{mensajes.EditInforfinancieraLabel_pasivosCorrientes}" for="pasivosCorrientes" />
+                        <p:inputText id="pasivosCorrientes" value="#{inforfinancieraController.selected.pasivosCorrientes}" title="#{mensajes.EditInforfinancieraTitle_pasivosCorrientes}" required="true" requiredMessage="#{mensajes.EditInforfinancieraRequiredMessage_pasivosCorrientes}"/>
+                        <p:outputLabel value="#{mensajes.EditInforfinancieraLabel_otrosPasivos}" for="otrosPasivos" />
+                        <p:inputText id="otrosPasivos" value="#{inforfinancieraController.selected.otrosPasivos}" title="#{mensajes.EditInforfinancieraTitle_otrosPasivos}" required="true" requiredMessage="#{mensajes.EditInforfinancieraRequiredMessage_otrosPasivos}"/>
+                        <p:outputLabel value="#{mensajes.EditInforfinancieraLabel_pasivosNoCorrientes}" for="pasivosNoCorrientes" />
+                        <p:inputText id="pasivosNoCorrientes" value="#{inforfinancieraController.selected.pasivosNoCorrientes}" title="#{mensajes.EditInforfinancieraTitle_pasivosNoCorrientes}" required="true" requiredMessage="#{mensajes.EditInforfinancieraRequiredMessage_pasivosNoCorrientes}"/>
+                        <p:outputLabel value="#{mensajes.EditInforfinancieraLabel_patrimonio}" for="patrimonio" />
+                        <p:inputText id="patrimonio" value="#{inforfinancieraController.selected.patrimonio}" title="#{mensajes.EditInforfinancieraTitle_patrimonio}" required="true" requiredMessage="#{mensajes.EditInforfinancieraRequiredMessage_patrimonio}"/>
+                        <p:outputLabel value="#{mensajes.EditInforfinancieraLabel_ingresosOperacionales}" for="ingresosOperacionales" />
+                        <p:inputText id="ingresosOperacionales" value="#{inforfinancieraController.selected.ingresosOperacionales}" title="#{mensajes.EditInforfinancieraTitle_ingresosOperacionales}" required="true" requiredMessage="#{mensajes.EditInforfinancieraRequiredMessage_ingresosOperacionales}"/>
+                        <p:outputLabel value="#{mensajes.EditInforfinancieraLabel_costodeVentas}" for="costodeVentas" />
+                        <p:inputText id="costodeVentas" value="#{inforfinancieraController.selected.costodeVentas}" title="#{mensajes.EditInforfinancieraTitle_costodeVentas}" required="true" requiredMessage="#{mensajes.EditInforfinancieraRequiredMessage_costodeVentas}"/>
+                        <p:outputLabel value="#{mensajes.EditInforfinancieraLabel_ingresosNoOperacionales}" for="ingresosNoOperacionales" />
+                        <p:inputText id="ingresosNoOperacionales" value="#{inforfinancieraController.selected.ingresosNoOperacionales}" title="#{mensajes.EditInforfinancieraTitle_ingresosNoOperacionales}" required="true" requiredMessage="#{mensajes.EditInforfinancieraRequiredMessage_ingresosNoOperacionales}"/>
+                        <p:outputLabel value="#{mensajes.EditInforfinancieraLabel_gastosdeVenta}" for="gastosdeVenta" />
+                        <p:inputText id="gastosdeVenta" value="#{inforfinancieraController.selected.gastosdeVenta}" title="#{mensajes.EditInforfinancieraTitle_gastosdeVenta}" required="true" requiredMessage="#{mensajes.EditInforfinancieraRequiredMessage_gastosdeVenta}"/>
+                        <p:outputLabel value="#{mensajes.EditInforfinancieraLabel_gastosdeAdministración}" for="gastosdeAdministración" />
+                        <p:inputText id="gastosdeAdministración" value="#{inforfinancieraController.selected.gastosdeAdministración}" title="#{mensajes.EditInforfinancieraTitle_gastosdeAdministración}" required="true" requiredMessage="#{mensajes.EditInforfinancieraRequiredMessage_gastosdeAdministración}"/>
+                        <p:outputLabel value="#{mensajes.EditInforfinancieraLabel_otrosGastos}" for="otrosGastos" />
+                        <p:inputText id="otrosGastos" value="#{inforfinancieraController.selected.otrosGastos}" title="#{mensajes.EditInforfinancieraTitle_otrosGastos}" required="true" requiredMessage="#{mensajes.EditInforfinancieraRequiredMessage_otrosGastos}"/>
+                        <p:outputLabel value="#{mensajes.EditInforfinancieraLabel_ingresosFinancieros}" for="ingresosFinancieros" />
+                        <p:inputText id="ingresosFinancieros" value="#{inforfinancieraController.selected.ingresosFinancieros}" title="#{mensajes.EditInforfinancieraTitle_ingresosFinancieros}" required="true" requiredMessage="#{mensajes.EditInforfinancieraRequiredMessage_ingresosFinancieros}"/>
+                        <p:outputLabel value="#{mensajes.EditInforfinancieraLabel_gastosFinancieros}" for="gastosFinancieros" />
+                        <p:inputText id="gastosFinancieros" value="#{inforfinancieraController.selected.gastosFinancieros}" title="#{mensajes.EditInforfinancieraTitle_gastosFinancieros}" required="true" requiredMessage="#{mensajes.EditInforfinancieraRequiredMessage_gastosFinancieros}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{inforfinancieraController.update}" value="#{mensajes.Save}" update="display,:InforfinancieraListForm:datalist,:growl" oncomplete="handleSubmit(args, 'InforfinancieraEditDialog');"/>
+                    <p:commandButton value="#{mensajes.Cancel}" onclick="InforfinancieraEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
